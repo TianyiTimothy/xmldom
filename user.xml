@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="user.xsd">
+	<user type="client">
+		<accountInfo>
+			<ID>
+				209221
+			</ID>
+			<username>
+				Andrew2011
+			</username>
+			<password>
+				ILoveU0123
+			</password>
+		</accountInfo>
+	</user>
+	<user type="admin">
+		<accountInfo>
+			<ID>
+				100001
+			</ID>
+			<username>
+				papaJones
+			</username>
+			<password>
+				imthebest
+			</password>
+		</accountInfo>
+	</user>
+</users>	
