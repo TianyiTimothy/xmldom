@@ -21,9 +21,11 @@ function validation($username, $password){
             if ($xmlPassword === $password) {
                 // is login, hide form
                 $isLogin = true;
+                // get user id
+                $userId = $user->getElementsByTagName("ID")->item(0)->nodeValue;
 
                 // isAdmin?
-                $isAdmin = true;
+                $isAdmin = $user->getAttribute("type") == "admin";
             }
         }
     }
@@ -31,5 +33,6 @@ function validation($username, $password){
     return array(
         "isLogin" => $isLogin,
         "isAdmin" => $isAdmin,
+        "userId" => $userId,
     );;
 }

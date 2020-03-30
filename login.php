@@ -18,22 +18,33 @@ if (isset($_POST["submit"])) {
 
     $isLogin = validation($username, $password)["isLogin"];
     $isAdmin = validation($username, $password)["isAdmin"];
+    $userId = validation($username, $password)["userId"];
 
     if (!$isLogin) {
         // if here, invalid
         $msg = "invalid username or password.";
     }
     echo $msg;
+
+    session_start();
     if($isAdmin){
         // is admin
         // show all tickets
+        echo "isadmin";
+        $_SESSION["userType"] = "admin";
+        // user id here should be unnecessary
+        $_SESSION["userId"] = $userId;
+        header("Location: ticketList.php");
 
     }else{
-        // is user
+        // is client
         // show only his tickets
+        echo "isnotadmin";
+        $_SESSION["userType"] = "client";
+        $_SESSION["userId"] = $userId;
+        header("Location: ticketList.php");
 
     }
-//    echo $username;
 }
 ?>
 

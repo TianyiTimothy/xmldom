@@ -25,6 +25,9 @@ foreach($users as $user){
     $password = $user->getElementsByTagName("password")->item(0)->nodeValue;
     print "password:" . $password;
     echo "<br />";
+    echo $user->getAttribute("type");
+    echo "<br />";
+
 }
 
 
