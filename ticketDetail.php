@@ -60,16 +60,23 @@ if (isset($_SESSION["userType"])) {
                     continue;
                 }
                 echo "<h1>" . $subject . "</h1>";
-                echo "<p class='lead'>" . $dateOfIssue ." - ". $status . "</p>";
+                echo "<p class='lead'>" . $dateOfIssue . " - " . $status . "</p>";
                 echo "<hr class=\"my-4\">";
                 foreach ($messages as $message) {
-                    echo "<p>" . $message->getElementsByTagName("messageContent")->item(0)->nodeValue ."</p>";
+                    echo "<p>" . $message->getElementsByTagName("messageContent")->item(0)->nodeValue . "</p>";
                     echo "<hr class=\"my-4\">";
                 }
             }
 
             ?>
         </div>
+        <form>
+            <div class="form-group">
+                <label for="addMessage">Feedback</label>
+                <textarea name="addMessage" id="addMessage" class="form-control"></textarea>
+            </div>
+            <input type="submit" name="submit" value="submit" class="btn btn-primary"/>
+        </form>
     </div>
     <div class="<?php if ($isLogin) {
         echo "d-none";
