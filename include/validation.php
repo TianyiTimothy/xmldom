@@ -28,5 +28,8 @@ function validation($username, $password){
         }
     }
 
-    return {isLogin: $isLogin,isAdmin: $isAdmin};
+    return array(
+        "isLogin" => $isLogin,
+        "isAdmin" => $isAdmin,
+    );;
 }

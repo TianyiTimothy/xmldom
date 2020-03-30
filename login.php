@@ -16,11 +16,22 @@ if (isset($_POST["submit"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $isLogin = validation($username, $password);
+    $isLogin = validation($username, $password)["isLogin"];
+    $isAdmin = validation($username, $password)["isAdmin"];
 
     if (!$isLogin) {
         // if here, invalid
         $msg = "invalid username or password.";
+    }
+    echo $msg;
+    if($isAdmin){
+        // is admin
+        // show all tickets
+
+    }else{
+        // is user
+        // show only his tickets
+
     }
 //    echo $username;
 }
