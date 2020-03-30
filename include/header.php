@@ -12,13 +12,10 @@
                         <a class="nav-link" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ticketList.php">Link</a>
+                        <a class="nav-link" href="ticketList.php">tickets</a>
                     </li>
                 </ul>
             </div>
-            <form class="form-inline my-2 my-md-0">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-            </form>
         </div>
     </nav>
 </header>

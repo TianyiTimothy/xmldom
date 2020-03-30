@@ -8,12 +8,12 @@ $isLogin = false;
 if (isset($_SESSION["userType"])) {
 
     $isLogin = true;
+    $userType = $_SESSION["userType"];
 
     $xmlDoc = new DOMDocument();
     $xmlDoc->load("supportingTickets.xml");
     $tickets = $xmlDoc->getElementsByTagName("ticket");
 
-    $userType = $_SESSION["userType"];
 }
 ?>
 
