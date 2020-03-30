@@ -2,63 +2,31 @@
 <tickets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="supportingTickets.xsd">
 	<ticket status="resolved">
-		<ID>
-			1012223
-		</ID>
-		<dateOfIssue>
-			2020-01-20
-		</dateOfIssue>
-		<subject>
-			I can't submit my work!
-		</subject>
-		<userID>
-			209221
-		</userID>
+		<ID>1012223</ID>
+		<dateOfIssue>2020-01-20</dateOfIssue>
+		<subject>I can't submit my work!</subject>
+		<userID>209221</userID>
 		<supportMessages>
-			<userID>
-				209221
-			</userID>
-			<messageContent>
-				When I click on submit at my lab page, nothing happens!
-			</messageContent>
+			<userID>209221</userID>
+			<messageContent>When I click on submit at my lab page, nothing happens!</messageContent>
 		</supportMessages>
 		<supportMessages>
-			<userID>
-				100001
-			</userID>
-			<messageContent>
-				This usually happens with a slow network, so you might want to check your network.
-			</messageContent>
+			<userID>100001</userID>
+			<messageContent>This usually happens with a slow network, so you might want to check your network.</messageContent>
 		</supportMessages>
 		<supportMessages>
-			<userID>
-				209221
-			</userID>
-			<messageContent>
-				Thank you! 
-			</messageContent>
+			<userID>209221</userID>
+			<messageContent>Thank you!</messageContent>
 		</supportMessages>
 	</ticket>
 	<ticket status="ongoing">
-		<ID>
-			1012224
-		</ID>
-		<dateOfIssue>
-			2020-01-22
-		</dateOfIssue>
-		<subject>
-			I can't submit my work again!
-		</subject>
-		<userID>
-			209221
-		</userID>
+		<ID>1012224</ID>
+		<dateOfIssue>2020-01-22</dateOfIssue>
+		<subject>I can't submit my work again!</subject>
+		<userID>209221</userID>
 		<supportMessages>
-			<userID>
-				209221
-			</userID>
-			<messageContent>
-				When I click on submit at my lab page, nothing happens! Even with fast net speed!
-			</messageContent>
+			<userID>209221</userID>
+			<messageContent>When I click on submit at my lab page, nothing happens! Even with fast net speed!</messageContent>
 		</supportMessages>
 	</ticket>
 </tickets>

@@ -3,28 +3,23 @@
          xsi:noNamespaceSchemaLocation="user.xsd">
 	<user type="client">
 		<accountInfo>
-			<ID>
-				209221
-			</ID>
-			<username>
-				Andrew2011
-			</username>
-			<password>
-				ILoveU0123
-			</password>
+			<ID>209221</ID>
+			<username>ann</username>
+			<password>ann</password>
+		</accountInfo>
+	</user>
+	<user type="client">
+		<accountInfo>
+			<ID>209222</ID>
+			<username>eli</username>
+			<password>eli</password>
 		</accountInfo>
 	</user>
 	<user type="admin">
 		<accountInfo>
-			<ID>
-				100001
-			</ID>
-			<username>
-				papaJones
-			</username>
-			<password>
-				imthebest
-			</password>
+			<ID>100001</ID>
+			<username>tim</username>
+			<password>tim</password>
 		</accountInfo>
 	</user>
-</users>	
+</users>
