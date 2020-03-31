@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+// vars
+$username = "";
+$userType = "";
+
 // isLogin flag
 $isLogin = false;
 $msg = "sorry, you should login first. <a href=\"login.php\">Login</a> now.";
@@ -56,6 +60,7 @@ if (isset($_SESSION["userType"])) {
 
                     $messages = $ticket->getElementsByTagName("supportMessages");
 
+
                 } else {
                     continue;
                 }
@@ -63,6 +68,30 @@ if (isset($_SESSION["userType"])) {
                 echo "<p class='lead'>" . $dateOfIssue . " - " . $status . "</p>";
                 echo "<hr class=\"my-4\">";
                 foreach ($messages as $message) {
+                    $messageUserId = $message->getElementsByTagName("userID")->item(0)->nodeValue;
+                    // get username & type from $ticketUserId
+                    $userXmlDoc = new DOMDocument();
+                    $userXmlDoc->load("user.xml");
+                    $users = $userXmlDoc->getElementsByTagName("user");
+                    foreach ($users as $key => $user) {
+                        if ($user->getElementsByTagName("ID")->item(0)->nodeValue == $messageUserId) {
+                            // get username & type
+
+                            $username = $user->getElementsByTagName("username")->item(0)->nodeValue;
+                            $userType = $user->getAttribute("type");
+//                            break;
+                        }
+                    }
+//                    echo $messageUserId;
+//                    echo $username;
+//                    echo $userType;
+                    if ($userType == "client") {
+                        // client
+                        echo "<p class='text-info'>" . $username . ":</p>";
+                    } else {
+                        // admin
+                        echo "<p class='text-primary'>" . $username . ":</p>";
+                    }
                     echo "<p>" . $message->getElementsByTagName("messageContent")->item(0)->nodeValue . "</p>";
                     echo "<hr class=\"my-4\">";
                 }
