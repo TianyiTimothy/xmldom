@@ -4,12 +4,14 @@ session_start();
 // vars
 $username = "";
 $userType = "";
+$msgUsername = "";
+$msgUserType = "";
 
 // isLogin flag
 $isLogin = false;
 $msg = "sorry, you should login first. <a href=\"login.php\">Login</a> now.";
 
-// if is post back
+// if is login in (have session)
 if (isset($_SESSION["userType"])) {
     if (isset($_GET["id"])) {
 
@@ -24,6 +26,37 @@ if (isset($_SESSION["userType"])) {
     } else {
         $msg = "nah, you need a ticket id to view detail. <a href=\"ticketList.php\">Back</a>";
     }
+    $userId = $_SESSION["userId"];
+}
+
+// if is post back
+if (isset($_POST["submit"])) {
+    // get current userid
+    echo $_SESSION["username"];
+//    echo $userId;
+    $message = $_POST["addMessage"];
+    // add into xml file
+//    <supportMessages>
+//        <userID>209221</userID>
+//        <messageContent>When I click on submit at my lab page, nothing happens!</messageContent>
+//    </supportMessages>
+    $tempXml = new DOMDocument();
+
+    $useridnode = $tempXml->createElement("userID");
+    $useridnodeText = $tempXml->createTextNode($userId);
+    $useridnode->appendChild($useridnodeText);
+
+    $messageContent = $tempXml->createElement("messageContent");
+    $messageContentText = $tempXml->createTextNode($message);
+    $messageContent->appendChild($messageContentText);
+
+    $smNode = $tempXml->createElement("supportMessages");
+    $smNode->appendChild($useridnode);
+    $smNode->appendChild($messageContent);
+
+    $currentTicket->appendChild($smNode);
+
+
 
 }
 ?>
@@ -76,21 +109,18 @@ if (isset($_SESSION["userType"])) {
                     foreach ($users as $key => $user) {
                         if ($user->getElementsByTagName("ID")->item(0)->nodeValue == $messageUserId) {
                             // get username & type
-
-                            $username = $user->getElementsByTagName("username")->item(0)->nodeValue;
-                            $userType = $user->getAttribute("type");
-//                            break;
+                            $msgUsername = $user->getElementsByTagName("username")->item(0)->nodeValue;
+                            $msgUserType = $user->getAttribute("type");
+                            // that's enough
+                            break;
                         }
                     }
-//                    echo $messageUserId;
-//                    echo $username;
-//                    echo $userType;
-                    if ($userType == "client") {
+                    if ($msgUserType == "client") {
                         // client
-                        echo "<p class='text-info'>" . $username . ":</p>";
+                        echo "<p class='text-info'>" . $msgUsername . ":</p>";
                     } else {
                         // admin
-                        echo "<p class='text-primary'>" . $username . ":</p>";
+                        echo "<p class='text-primary'>" . $msgUsername . ":</p>";
                     }
                     echo "<p>" . $message->getElementsByTagName("messageContent")->item(0)->nodeValue . "</p>";
                     echo "<hr class=\"my-4\">";
@@ -99,7 +129,7 @@ if (isset($_SESSION["userType"])) {
 
             ?>
         </div>
-        <form>
+        <form action="" method="post">
             <div class="form-group">
                 <label for="addMessage">Feedback</label>
                 <textarea name="addMessage" id="addMessage" class="form-control"></textarea>

@@ -6,12 +6,15 @@
  *
  * return: {isLogin = isLogin, isAdmin=isAdmin}
  */
-function validation($username, $password){
+function validation($username, $password)
+{
     // get uname&pwd from XML
     $xmlDoc = new DOMDocument();
     $xmlDoc->load("user.xml");
 
     $users = $xmlDoc->getElementsByTagName("user");
+
+    $isLogin = false;
 
 
     foreach ($users as $user) {
@@ -29,10 +32,15 @@ function validation($username, $password){
             }
         }
     }
-
-    return array(
-        "isLogin" => $isLogin,
-        "isAdmin" => $isAdmin,
-        "userId" => $userId,
-    );;
+    if ($isLogin) {
+        return array(
+            "isLogin" => $isLogin,
+            "isAdmin" => $isAdmin,
+            "userId" => $userId,
+        );
+    } else {
+        return array(
+            "isLogin" => $isLogin,
+        );
+    }
 }
